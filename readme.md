@@ -1,7 +1,6 @@
-# Laravel Web Installer | A Web Installer [Package](https://packagist.org/packages/rachidlaasri/laravel-installer)
+# Laravel Web Installer | A Web Installer based on  [rachidlaasri/laravel-installer](https://packagist.org/packages/rachidlaasri/laravel-installer)
 
-[![Total Downloads](https://poser.pugx.org/rachidlaasri/laravel-installer/d/total.svg)](https://packagist.org/packages/rachidlaasri/laravel-installer)
-[![Latest Stable Version](https://poser.pugx.org/rachidlaasri/laravel-installer/v/stable.svg)](https://packagist.org/packages/rachidlaasri/laravel-installer)
+<a href="https://gitlab.jtl-software.de/mirko/laravel-installer/tree/1.0.0"><img src="https://img.shields.io/badge/stable-1.0.0-blue.svg" alt="Latest Stable Version"></a>
 [![License](https://poser.pugx.org/rachidlaasri/laravel-installer/license.svg)](https://packagist.org/packages/rachidlaasri/laravel-installer)
 
 - [About](#about)
@@ -22,11 +21,8 @@ The current features are :
 
 - Check For Server Requirements.
 - Check For Folders Permissions.
-- Ability to set database information.
-	- .env text editor
-	- .env form wizard
+- Ability to set database information (.env from wizard).
 - Migrate The Database.
-- Seed The Tables.
 
 ## Requirements
 
@@ -34,10 +30,26 @@ The current features are :
 
 ## Installation
 
-1. From your projects root folder in terminal run:
+1. Include it into your composer.json:
 
 ```bash
-    composer require rachidlaasri/laravel-installer
+    "require": {
+        "mirko/laravel-installer": "^1.0.0",
+    },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "mirko/laravel-installer",
+                "version": "1.0.0",
+                "source": {
+                    "url": "https://gitlab.jtl-software.de/mirko/laravel-installer.git",
+                    "type": "git",
+                    "reference": "1.0.0"
+                }
+            }
+        }
+    ]
 ```
 
 2. Register the package
@@ -54,10 +66,15 @@ Register the package with laravel in `config/app.php` under `providers` with the
 	];
 ```
 
-3. Publish the packages views, config file, assets, and language files by running the following from your projects root folder:
+3. Paste this code into your ../public/index.php before the ```$response->send();``` :
 
 ```bash
-    php artisan vendor:publish --tag=laravelinstaller
+    if (empty($app->make('config')->get('app.key')) && url()->current() === url('/')) {
+        $response = \RachidLaasri\LaravelInstaller\Controllers\WelcomeController::start();
+    } elseif (empty($app->make('config')->get('database.connections.mysql.database'))
+        && !preg_match('/^' .preg_quote(url('/install'), '/g') . '/', url()->current())) {
+        $response = response()->redirectTo(url('/install'));;
+    }
 ```
 
 ## Routes
@@ -99,8 +116,6 @@ Register the package with laravel in `config/app.php` under `providers` with the
 ![Laravel web installer | Step 1](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-installer/install/1-welcome.jpg)
 ![Laravel web installer | Step 2](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-installer/install/2-requirements.jpg)
 ![Laravel web installer | Step 3](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-installer/install/3-permissions.jpg)
-![Laravel web installer | Step 4 Menu](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-installer/install/4-environment.jpg)
-![Laravel web installer | Step 4 Classic](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-installer/install/4a-environment-classic.jpg)
 ![Laravel web installer | Step 4 Wizard 1](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-installer/install/4b-environment-wizard-1.jpg)
 ![Laravel web installer | Step 4 Wizard 2](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-installer/install/4b-environment-wizard-2.jpg)
 ![Laravel web installer | Step 4 Wizard 3](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-installer/install/4b-environment-wizard-3.jpg)
