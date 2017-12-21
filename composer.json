@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "RachidLaasri\\LaravelInstaller\\": "src/"
+            "MirkoSchmidt\\LaravelInstaller\\": "src/"
         },
         "files": [
             "src/Helpers/functions.php"
@@ -26,7 +26,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "RachidLaasri\\LaravelInstaller\\Providers\\LaravelInstallerServiceProvider"
+                "MirkoSchmidt\\LaravelInstaller\\Providers\\LaravelInstallerServiceProvider"
             ]
         }
     },

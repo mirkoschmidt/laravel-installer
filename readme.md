@@ -34,16 +34,16 @@ The current features are :
 
 ```bash
     "require": {
-        "mirko/laravel-installer": "^1.0.0",
+        "mirkoschmidt/laravel-installer": "^1.0.0",
     },
     "repositories": [
         {
             "type": "package",
             "package": {
-                "name": "mirko/laravel-installer",
+                "name": "mirkoschmidt/laravel-installer",
                 "version": "1.0.0",
                 "source": {
-                    "url": "https://gitlab.jtl-software.de/mirko/laravel-installer.git",
+                    "url": "https://gitlab.jtl-software.de/mirkoschmidt/laravel-installer.git",
                     "type": "git",
                     "reference": "1.0.0"
                 }
@@ -62,7 +62,7 @@ Register the package with laravel in `config/app.php` under `providers` with the
 
 ```php
 	'providers' => [
-	    RachidLaasri\LaravelInstaller\Providers\LaravelInstallerServiceProvider::class,
+	    MirkoSchmidt\LaravelInstaller\Providers\LaravelInstallerServiceProvider::class,
 	];
 ```
 
@@ -70,7 +70,7 @@ Register the package with laravel in `config/app.php` under `providers` with the
 
 ```bash
     if (empty($app->make('config')->get('app.key')) && url()->current() === url('/')) {
-        $response = \RachidLaasri\LaravelInstaller\Controllers\WelcomeController::start();
+        $response = \MirkoSchmidt\LaravelInstaller\Controllers\WelcomeController::start();
     } elseif (empty($app->make('config')->get('database.connections.mysql.database'))
         && !preg_match('/^' .preg_quote(url('/install'), '/g') . '/', url()->current())) {
         $response = response()->redirectTo(url('/install'));;

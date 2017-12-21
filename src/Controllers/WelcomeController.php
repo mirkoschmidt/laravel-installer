@@ -1,10 +1,10 @@
 <?php
 
-namespace RachidLaasri\LaravelInstaller\Controllers;
+namespace MirkoSchmidt\LaravelInstaller\Controllers;
 
 use App\Http\Controllers\Controller;
-use RachidLaasri\LaravelInstaller\Helpers\EnvironmentManager;
-use RachidLaasri\LaravelInstaller\Helpers\FinalInstallManager;
+use MirkoSchmidt\LaravelInstaller\Helpers\EnvironmentManager;
+use MirkoSchmidt\LaravelInstaller\Helpers\FinalInstallManager;
 use Symfony\Component\Console\Output\BufferedOutput;
 
 class WelcomeController extends Controller

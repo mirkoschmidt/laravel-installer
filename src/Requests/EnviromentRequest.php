@@ -1,6 +1,6 @@
 <?php
 
-namespace RachidLaasri\LaravelInstaller\Requests;
+namespace MirkoSchmidt\LaravelInstaller\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
