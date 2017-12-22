@@ -1,5 +1,5 @@
 {
-    "name": "rachidlaasri/laravel-installer",
+    "name": "mirkoschmidt/laravel-installer",
     "description": "Laravel web installer",
     "license": "MIT",
     "authors": [
@@ -10,6 +10,10 @@
         {
             "name": "Jeremy Kenedy",
             "email": "jeremykenedy@gmail.com"
+        },
+        {
+            "name": "Mirko Schmidt",
+            "email": "mschmidi92@gmx.de"
         }
     ],
     "require": {
@@ -17,7 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "MirkoSchmidt\\LaravelInstaller\\": "src/"
+            "MirkoSchmidt\\LaravelInstaller": "src/"
         },
         "files": [
             "src/Helpers/functions.php"
