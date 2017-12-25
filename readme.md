@@ -33,23 +33,7 @@ The current features are :
 1. Include it into your composer.json:
 
 ```bash
-    "require": {
-        "mirkoschmidt/laravel-installer": "^1.0.0",
-    },
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "mirkoschmidt/laravel-installer",
-                "version": "1.0.0",
-                "source": {
-                    "url": "https://gitlab.jtl-software.de/mirkoschmidt/laravel-installer.git",
-                    "type": "git",
-                    "reference": "1.0.0"
-                }
-            }
-        }
-    ]
+     composer require mirkoschmidt/laravel-installer
 ```
 
 2. Register the package
