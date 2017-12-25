@@ -1,6 +1,6 @@
 # Laravel Web Installer | A Web Installer based on  [rachidlaasri/laravel-installer](https://packagist.org/packages/rachidlaasri/laravel-installer)
 
-<a href="https://gitlab.jtl-software.de/mirko/laravel-installer/tree/1.0.0"><img src="https://img.shields.io/badge/stable-1.0.0-blue.svg" alt="Latest Stable Version"></a>
+<a href="https://gitlab.jtl-software.de/mirko/laravel-installer/tree/1.0.5"><img src="https://img.shields.io/badge/stable-1.0.5-blue.svg" alt="Latest Stable Version"></a>
 [![License](https://poser.pugx.org/rachidlaasri/laravel-installer/license.svg)](https://packagist.org/packages/rachidlaasri/laravel-installer)
 
 - [About](#about)
@@ -33,23 +33,7 @@ The current features are :
 1. Include it into your composer.json:
 
 ```bash
-    "require": {
-        "mirkoschmidt/laravel-installer": "^1.0.0",
-    },
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "mirkoschmidt/laravel-installer",
-                "version": "1.0.0",
-                "source": {
-                    "url": "https://gitlab.jtl-software.de/mirkoschmidt/laravel-installer.git",
-                    "type": "git",
-                    "reference": "1.0.0"
-                }
-            }
-        }
-    ]
+     composer require mirkoschmidt/laravel-installer
 ```
 
 2. Register the package
