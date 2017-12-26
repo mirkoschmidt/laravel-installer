@@ -1,7 +1,7 @@
 # Laravel Web Installer | A Web Installer based on  [rachidlaasri/laravel-installer](https://packagist.org/packages/rachidlaasri/laravel-installer)
 
-<a href="https://gitlab.jtl-software.de/mirko/laravel-installer/tree/1.0.6"><img src="https://img.shields.io/badge/stable-1.0.6-blue.svg" alt="Latest Stable Version"></a>
-[![License](https://poser.pugx.org/rachidlaasri/laravel-installer/license.svg)](https://packagist.org/packages/rachidlaasri/laravel-installer)
+<a href="https://github.com/mirkoschmidt/laravel-installer/tree/1.0.7"><img src="https://img.shields.io/badge/stable-1.0.7-blue.svg" alt="Latest Stable Version"></a>
+[![License](https://poser.pugx.org/rachidlaasri/laravel-installer/license.svg)](https://packagist.org/packages/mirkoschmidt/laravel-installer)
 
 - [About](#about)
 - [Requirements](#requirements)
