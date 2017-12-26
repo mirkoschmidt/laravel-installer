@@ -1,7 +1,7 @@
 # Laravel Web Installer | A Web Installer based on  [rachidlaasri/laravel-installer](https://packagist.org/packages/rachidlaasri/laravel-installer)
 
-<a href="https://gitlab.jtl-software.de/mirko/laravel-installer/tree/1.0.5"><img src="https://img.shields.io/badge/stable-1.0.5-blue.svg" alt="Latest Stable Version"></a>
-[![License](https://poser.pugx.org/rachidlaasri/laravel-installer/license.svg)](https://packagist.org/packages/rachidlaasri/laravel-installer)
+<a href="https://github.com/mirkoschmidt/laravel-installer/tree/1.0.7"><img src="https://img.shields.io/badge/stable-1.0.7-blue.svg" alt="Latest Stable Version"></a>
+[![License](https://poser.pugx.org/rachidlaasri/laravel-installer/license.svg)](https://packagist.org/packages/mirkoschmidt/laravel-installer)
 
 - [About](#about)
 - [Requirements](#requirements)
@@ -19,6 +19,8 @@ Do you want your clients to be able to install a Laravel project just like they 
 This Laravel package allows users who don't use Composer, SSH etc to install your application just by following the setup wizard.
 The current features are :
 
+- Auto generate .env file
+- Redirect to `/install` route if none database name exists(anything other than `homestead`)
 - Check For Server Requirements.
 - Check For Folders Permissions.
 - Ability to set database information (.env from wizard).
@@ -50,17 +52,6 @@ Register the package with laravel in `config/app.php` under `providers` with the
 	];
 ```
 
-3. Paste this code into your ../public/index.php before the ```$response->send();``` :
-
-```bash
-    if (empty($app->make('config')->get('app.key')) && url()->current() === url('/')) {
-        $response = \MirkoSchmidt\LaravelInstaller\Controllers\WelcomeController::start();
-    } elseif (empty($app->make('config')->get('database.connections.mysql.database'))
-        && !preg_match('/^' .preg_quote(url('/install'), '/g') . '/', url()->current())) {
-        $response = response()->redirectTo(url('/install'));;
-    }
-```
-
 ## Routes
 
 * `/install`
@@ -87,7 +78,7 @@ Register the package with laravel in `config/app.php` under `providers` with the
 
 ## Contributing
 
-* If you have any suggestions please let me know : https://github.com/RachidLaasri/LaravelInstaller/pulls.
+* If you have any suggestions please let me know : https://github.com/mirkoschmidt/laravel-installer/pulls.
 * Please help us provide more languages for this awesome package please send a pull request https://github.com/RachidLaasri/LaravelInstaller/pulls.
 
 ## Help

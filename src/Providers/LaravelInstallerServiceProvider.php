@@ -36,6 +36,7 @@ class LaravelInstallerServiceProvider extends ServiceProvider
     {
         $router->middlewareGroup('install',[CanInstall::class]);
         $router->middlewareGroup('update',[CanUpdate::class]);
+        $this->checkProjectStatus();
     }
 
     /**
@@ -60,5 +61,22 @@ class LaravelInstallerServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../Lang' => base_path('resources/lang'),
         ], 'laravelinstaller');
+    }
+
+    /**
+     * Generate .env and redirect to '/install' or redirect directly to '/install'
+     *
+     * @return void
+     */
+    protected function checkProjectStatus()
+    {
+        if (empty($this->app->make('config')->get('app.key')) && url()->current() === url('/')) {
+            WelcomeController::start();
+        } elseif ((empty($this->app->make('config')->get('database.connections.mysql.database'))
+                || $this->app->make('config')->get('database.connections.mysql.database') === 'homestead')
+            && !preg_match('/^' .preg_quote(url('/install'), '/g') . '/', url()->current())
+        ) {
+            redirect('/install')->send();
+        }
     }
 }
