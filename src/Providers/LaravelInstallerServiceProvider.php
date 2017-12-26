@@ -6,6 +6,7 @@ use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use MirkoSchmidt\LaravelInstaller\Middleware\canInstall;
 use MirkoSchmidt\LaravelInstaller\Middleware\canUpdate;
+use MirkoSchmidt\LaravelInstaller\Controllers\WelcomeController;
 
 class LaravelInstallerServiceProvider extends ServiceProvider
 {
