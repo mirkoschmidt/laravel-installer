@@ -29,7 +29,7 @@ class WelcomeController extends Controller
 
         FinalInstallManager::publishVendorAssets($outputLog);
 
-        return response()->redirectTo(url('/install'));
+        redirect('/install')->send();
     }
 
 }
