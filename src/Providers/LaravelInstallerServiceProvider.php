@@ -37,7 +37,9 @@ class LaravelInstallerServiceProvider extends ServiceProvider
     {
         $router->middlewareGroup('install',[CanInstall::class]);
         $router->middlewareGroup('update',[CanUpdate::class]);
-        $this->checkProjectStatus();
+        if (!$this->app->runningInConsole()) {
+            $this->checkProjectStatus();
+        }
     }
 
     /**
