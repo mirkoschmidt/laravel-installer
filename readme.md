@@ -1,6 +1,6 @@
 # Laravel Web Installer | A Web Installer based on  [rachidlaasri/laravel-installer](https://packagist.org/packages/rachidlaasri/laravel-installer)
 
-<a href="https://github.com/mirkoschmidt/laravel-installer/tree/1.0.9"><img src="https://img.shields.io/badge/stable-1.0.9-blue.svg" alt="Latest Stable Version"></a>
+<a href="https://github.com/mirkoschmidt/laravel-installer/tree/1.0.10"><img src="https://img.shields.io/badge/stable-1.0.10-blue.svg" alt="Latest Stable Version"></a>
 [![License](https://poser.pugx.org/rachidlaasri/laravel-installer/license.svg)](https://packagist.org/packages/mirkoschmidt/laravel-installer)
 
 - [About](#about)
