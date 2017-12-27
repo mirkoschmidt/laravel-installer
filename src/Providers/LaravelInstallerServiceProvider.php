@@ -15,7 +15,7 @@ class LaravelInstallerServiceProvider extends ServiceProvider
      *
      * @var bool
      */
-    protected $defer = false;
+    protected $defer = true;
 
     /**
      * Register the service provider.
@@ -73,7 +73,7 @@ class LaravelInstallerServiceProvider extends ServiceProvider
      */
     protected function checkProjectStatus()
     {
-        if (empty($this->app->make('config')->get('app.key')) && url()->current() === url('/')) {
+        if (empty($this->app->make('config')->get('app.key'))) {
             WelcomeController::start();
         } elseif ((empty($this->app->make('config')->get('database.connections.mysql.database'))
                 || $this->app->make('config')->get('database.connections.mysql.database') === 'homestead')
